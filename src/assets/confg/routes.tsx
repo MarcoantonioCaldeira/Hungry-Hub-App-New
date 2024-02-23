@@ -3,9 +3,9 @@ import { Route, BrowserRouter, Routes } from "react-router-dom";
 
 
 import Login from '../components/Login/Login';
-import CadastroCliente from '../components/CadastroCliente/CadastroCliente';
-import CadastroRestaurante from '../components/CadastroRestaurante/CadastroRestaurante';
-import Home from '../components/Home';
+import CostumerRegistration from '../components/CostumerRegistration/CostumerRegistration';
+import RestaurantRegistration from '../components/RestaurantRegistration/RestaurantRegistration';
+import Home from '../components/Home/Home';
 import Dashboard from '../components/Dashboard/Dashboard';
 
 const RoutesComponent  = () => {
@@ -13,9 +13,8 @@ const RoutesComponent  = () => {
         <Routes>
             <Route path='/' element={<Home />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/cadastro" element={<CadastroCliente />} />
-            <Route path="/cadastrorestaurante" element={<CadastroRestaurante />} />
-            
+            <Route path="/cadastro" element={<CostumerRegistration />} />
+            <Route path="/cadastrorestaurante" element={<RestaurantRegistration />} />
             <Route path='/dashboard' element={<Dashboard />} />
         </Routes>
     )

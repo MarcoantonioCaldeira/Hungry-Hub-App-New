@@ -1,9 +1,13 @@
-import React, { useRef, useState } from 'react';
+import React, { MutableRefObject, useRef, useState } from 'react';
 import './style/estilo_home.scss';
 import './style/MenuHamburguer.jsx';
 import { Link } from 'react-router-dom';
 import Footer  from '../Footer/Footer';
-import { ButtonStyledMenuTwo, ButtonStyledMenu, ButtonCarrers } from '../../design-systems/Buttons.tsx';
+import { 
+      ButtonStyledMenuTwo, 
+      ButtonStyledMenu, 
+      ButtonCarrers 
+} from '../../design-systems/Buttons.tsx';
 import { 
       Template, 
       Menu, 
@@ -26,11 +30,11 @@ const Home = () =>{
   const myComponent = useRef(null)
   const myComponentInitial = useRef(null)
 
-  const ScrollMenu = (ref) => {
+  const ScrollMenu = (ref: MutableRefObject<any>): void => {
     if (ref.current) {
       ref.current.scrollIntoView({ behavior: 'smooth' });
     }
-  };
+};
 
   const [OpenMenu, setOpenMenu] = useState(false);
 
@@ -56,8 +60,8 @@ const Home = () =>{
             </Logo>
             
             <div className='Teste-btn'>
-              <ButtonStyledMenuTwo className='btn-menu' onClick={() => ScrollMenu(myComponentInitial)}><Link>Inicio</Link></ButtonStyledMenuTwo>
-              <ButtonStyledMenuTwo className='btn-menu' onClick={() => ScrollMenu(myComponent)}><Link>Nossas Carreiras</Link></ButtonStyledMenuTwo> 
+              <ButtonStyledMenuTwo className='btn-menu' onClick={() => ScrollMenu(myComponentInitial)}><Link to="#">Inicio</Link></ButtonStyledMenuTwo>
+              <ButtonStyledMenuTwo className='btn-menu' onClick={() => ScrollMenu(myComponent)}><Link to="#">Nossas Carreiras</Link></ButtonStyledMenuTwo> 
             </div>
           
           </div>
@@ -72,8 +76,8 @@ const Home = () =>{
               </div>
 
             <ul className="itens-menu">
-              <ButtonStyledMenuTwo className='btn-menu' onClick={() => ScrollMenu(myComponentInitial)}><Link>Inicio</Link></ButtonStyledMenuTwo>
-              <ButtonStyledMenuTwo className='btn-menu' onClick={() => ScrollMenu(myComponent)}><Link>Nossas Carreiras</Link></ButtonStyledMenuTwo> 
+              <ButtonStyledMenuTwo className='btn-menu' onClick={() => ScrollMenu(myComponentInitial)}><Link to="#">Inicio</Link></ButtonStyledMenuTwo>
+              <ButtonStyledMenuTwo className='btn-menu' onClick={() => ScrollMenu(myComponent)}><Link to="#">Nossas Carreiras</Link></ButtonStyledMenuTwo> 
             </ul>
         </MenuHamburguer>
       </Menu>

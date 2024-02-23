@@ -14,7 +14,7 @@ const CostumerRegistration = () => {
     const [error, setError] = useState(null);
     const [success, setSuccess] = useState(false);
 
-    const handleFormSubmit = async (event) => {
+    const handleFormSubmit = async (event:any) => {
         event.preventDefault();
     
         const DadosFormulario = {

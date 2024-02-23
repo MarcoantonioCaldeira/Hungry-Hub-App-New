@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import ClienteLogado from "./ClienteLogado";
+import LoggedCostumer from "./LoggedCostumer";
 
 const Dashboard = () => {
     const navigate = useNavigate();
@@ -13,7 +13,7 @@ const Dashboard = () => {
     return (
         <div>
             <button onClick={handleLogout}>Logout</button>
-            <ClienteLogado id={idDoCliente} />
+            <LoggedCostumer id={idDoCliente} />
         </div>
     )
 }

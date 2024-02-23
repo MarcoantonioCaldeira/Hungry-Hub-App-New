@@ -4,49 +4,40 @@ import axios from 'axios'
 import Footer from '../Footer/Footer';
 import './estiloLogin.scss';
 import { useNavigate } from 'react-router-dom';
-
-
-
 import LogoImg from '../../assets/img/Logo.png';
 import { Logo } from '../../design-systems/Images';
 import { FontLogin } from '../../design-systems/Fonts';
 import { InputLogin } from '../../design-systems/Inputs';
 import { ButtonLogin } from '../../design-systems/Buttons';
 
-const FormularioLoginProps = {
-    onLoginSuccess: function(usuario) {
-        // Lógica para quando o login é bem-sucedido
-    },
-    onLoginFailure: function(error) {
-        // Lógica para quando o login falha
-    }
-};
+
+
+interface FormularioLoginProps {
+    onLoginSuccess: (usuario: any) => void;
+    onLoginFailure: (error: string) => void;
+  }
 
   
-const Login = ({ onLoginSuccess, onLoginFailure }) => {
+const Login: React.FC<FormularioLoginProps> =({ onLoginSuccess, onLoginFailure }) => {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
     const navigate = useNavigate();
 
 
-    const handleFormAuth = async (event) => {
-        event.preventDefault();
-
-        const DadosFormulario = {
-            email: email,
-            senha: senha
-        }
-
+    const handleFormAuth = async () => {
+   
         try{
             const URL_API = 'http://localhost:5050'
-            const resposta = await axios.post(URL_API + '/auth/login', DadosFormulario)
-            console.log(resposta)
+            const response = await axios.post(`${URL_API}/auth/login`, {
+                email: email,
+                senha: senha,
+            })
 
-            if(resposta.status === 200){
+            if(response.status === 200){
 
-                setEmail('')
-                setSenha('')
+
                 navigate('/dashboard')
+                onLoginSuccess(response.data.usuario);
             }
 
         }catch(error){
@@ -66,9 +57,11 @@ const Login = ({ onLoginSuccess, onLoginFailure }) => {
                 <form onSubmit={handleFormAuth}>
                     
                     <div className='areaInputLogin'>
+
                         <FontLogin className='TitleLogin'>Iniciar Sessão</FontLogin>
-                        <InputLogin className='InputLogin' placeholder='E-mail'  type="text" name='email' value={email} onChange={(e) => setEmail(e.target.value)} />
-                        <InputLogin className='InputLogin' placeholder="Senha" type="text" name='senha' value={senha} onChange={(e) => setSenha(e.target.value)} />
+
+                        <InputLogin className='InputLogin' placeholder='E-mail'  type="text" value={email} onChange={(e:any) => setEmail(e.target.value)} />
+                        <InputLogin className='InputLogin' placeholder="Senha" type="text" value={senha} onChange={(e:any) => setSenha(e.target.value)} />
 
                         <ButtonLogin className='btn_login'><a>Entrar</a></ButtonLogin>  
                     </div>

@@ -1,0 +1,34 @@
+.BodyLogin{
+    width: 100%;
+    height: 900px;
+    background-image: url('../../assets/img/background_login.jpg');
+    background-repeat: no-repeat;
+    background-size: cover; // ou 'contain', dependendo do efeito desejado
+
+    .LogoImg{
+        width: 250px;
+    }
+}
+
+.TitleLogin{
+    font-size: 50px;
+    margin-top: 100px;
+}
+
+.areaInputLogin{
+    margin-top: 100px;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+
+    .btn_login{
+        margin-top: 60px !important;
+    }
+}
+
+form{
+    width: 50%;
+    height: 900px;
+    float: right;
+    background-color: white;
+}

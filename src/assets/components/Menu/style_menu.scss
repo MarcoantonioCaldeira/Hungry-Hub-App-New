@@ -1,0 +1,229 @@
+.Home {
+    position: relative;
+    padding-top: 30px;
+    padding-right: 20px;
+    padding-left: 20px;
+
+   
+    .Logo{
+        width: 260px;
+    }
+
+    .Um {
+        float: right;
+        display: flex;
+        gap: 10px;
+    }
+
+    .btn-menu {
+        display: inline-block;
+        //background-color: red;
+        margin: 10px;
+    }
+
+    .Teste-btn{
+        position: absolute;
+        display: inline-block;
+        margin-left: 22px;
+        //margin-top: 1px;
+        //background-color: red;
+    }
+
+    @media screen and (max-width: 600px) {
+        .Vertical_Menu{
+            display: none;
+        }
+    }
+
+}
+
+.Template_Area{
+    width: 100%;
+}
+
+.Template {
+    display: flex;
+    align-items: center;
+    margin: auto;
+    justify-content: center;
+    
+
+    .ImageTemplate{
+        border-radius: 10px;
+        width: 100%;
+        height: 100%;
+    }
+
+    @media screen and (max-width: 600px) {
+        width: 100%;
+        background-color: aqua;
+    }
+
+}
+
+.Solutions {
+    margin-top: 220px;
+
+    h2 {
+        font-size: 50px;
+        margin-left: 50px;
+        
+        @media screen and (max-width: 600px) {
+            font-size: 40px;
+            margin-left: 80px;
+            //background-color: aqua;
+        }
+
+    }
+
+    .Restaurante {
+        margin-left: 50px;
+        margin-top: 20px;
+    }
+
+    .Lanchonete {
+        margin-left: 20px;
+    }
+
+    .Restaurante, .Lanchonete{
+
+        @media screen and (max-width: 600px) {
+            display: flex;
+            align-items: center;
+            margin: auto;
+            margin-top: 20px;
+            justify-content: center;
+        }
+    }
+
+    p{
+        color:white;
+        display: flex;
+        align-items: center;
+        margin: auto;
+        margin-top: 130px;
+        justify-content: center;
+    }
+}
+
+.Corpo {
+    width: 100%;
+    height: 2000px;
+    background-color: rgb(235, 235, 235);
+}
+
+
+.Area-Registrations {
+    position: relative;
+    //Titulo da pegina
+    h2 {
+        //position: absolute;
+        top: 0;
+        display: flex;
+        align-items: center;
+        margin: auto;
+        justify-content: center;
+        font-weight: 600 !important;
+        font-size: 50px;
+
+        @media screen and (max-width: 600px) {
+            font-size: 40px;
+            margin-left: 80px;
+            //background-color: aqua;
+        }
+    }
+
+
+
+    .Area-Sub-Registrations {
+        //background-color: red;
+        display: flex;
+        align-items: center;
+        //margin: auto;
+        justify-content: center;
+        padding-top: 50px;
+        overflow: hidden;
+
+        .ImageDelivery{
+            border-radius: 10px;
+            width: 100%; /* A imagem ocupará 100% da largura da div */
+            height: 100%; /* A imagem ocupará 100% da altura da div */
+            object-fit: cover; /* Mantém a proporção da imagem, cortando ou ajustando para cobrir a div */
+            display: block;
+        }
+
+        .ImageRestaurant{
+            border-radius: 10px;
+            width: 100%; /* A imagem ocupará 100% da largura da div */
+            height: 100%; /* A imagem ocupará 100% da altura da div */
+            object-fit: cover; /* Mantém a proporção da imagem, cortando ou ajustando para cobrir a div */
+            display: block; 
+        }
+
+    }
+
+    .CadastroRestaurante {
+        display: inline-block;
+        margin-left: 30px;
+
+        .btn_saiba{
+            position: absolute;  
+            margin-top: -110px;
+            margin-left: 120px;
+        }
+
+        @media screen and (max-width: 600px) {
+            width: 200px;
+            height: 350px;
+            color: aqua !important;
+        }
+
+        .font_restaurante{
+            position: absolute;
+            padding-top: 600px;
+            padding-left: 50px;
+
+            @media screen and (max-width: 600px) {
+                font-size: 30px;
+                left: -30px;
+                //position: absolute;
+                padding-top: 350px;
+                //padding-left: 50px;
+            }
+
+        }
+    }
+
+
+    .CadastroEntregador {
+        margin-left: 30px;
+
+       .btn_saiba{
+            position: absolute;  
+            margin-top: -110px;
+            margin-left: 120px;
+        }
+
+    
+        @media screen and (max-width: 600px) {
+            width: 200px;
+            height: 350px;
+            color: aqua !important;
+        }
+
+        .font_entregadores{
+            position: absolute;
+            padding-top: 600px;
+            padding-left: 40px;
+
+            @media screen and (max-width: 600px) {
+                font-size: 30px;
+                left: 202px;
+                //position: absolute;
+                padding-top: 350px;
+                //padding-left: 50px;
+            }
+        }
+    }
+
+}

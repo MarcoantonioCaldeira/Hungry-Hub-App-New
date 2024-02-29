@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 
-export const MenuHamburguer =  styled.div`
+export const MenuHamburger =  styled.div`
   display: none; 
 
   @media screen and (max-width: 600px) {

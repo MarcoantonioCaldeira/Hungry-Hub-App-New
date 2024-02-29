@@ -1,6 +1,5 @@
 import React, { MutableRefObject, useRef, useState } from 'react';
-import './style/estilo_home.scss';
-import './style/MenuHamburguer.jsx';
+import './style.scss';
 import { Link } from 'react-router-dom';
 import Footer  from '../Footer/Footer';
 import { 
@@ -16,13 +15,13 @@ import {
       RegisterAreaRestaurant,
       SolutionRestaurant,
       SolutionLanch,
-} from '../../design-systems/Components.tsx';
-import  { Logo } from '../../design-systems/Images.tsx';
+} from '../../design-systems/Components.tsx'
+import  { Logo } from '../../design-systems/Images.tsx'
 import {Font, FontRestaurante} from '../../design-systems/Fonts.tsx'
-import { MenuHamburguer } from '../../components/Menu/Menu.tsx';
-import ImageTamplate from '../assets/img/image-painel.jpg'
-import ImageDelivery from '../assets/img/img_restaurante.jpg'
-import LogoImg from '../assets/img/Logo.png'
+import ImageTamplate from '../../assets/img/image-painel.jpg'
+import ImageDelivery from '../../assets/img/img_restaurante.jpg'
+import LogoImg from '../../assets/img/Logo.png'
+import { MenuHamburger } from '../../components/Menu/MenuHamburger.tsx';
 
 
 const Home = () =>{
@@ -61,14 +60,14 @@ const Home = () =>{
             
             <div className='Teste-btn'>
               <ButtonStyledMenuTwo className='btn-menu' onClick={() => ScrollMenu(myComponentInitial)}><Link to="#">Inicio</Link></ButtonStyledMenuTwo>
-              <ButtonStyledMenuTwo className='btn-menu' onClick={() => ScrollMenu(myComponent)}><Link to="#">Nossas Carreiras</Link></ButtonStyledMenuTwo> 
+              <ButtonStyledMenuTwo className='btn-menu' onClick={() => ScrollMenu(myComponent)}><Link to="#">Aumente suas Vendas</Link></ButtonStyledMenuTwo> 
             </div>
           
           </div>
           
         </div>
 
-        <MenuHamburguer menuAberto={OpenMenu}>
+        <MenuHamburger menuAberto={OpenMenu}>
             <div className="icone-hamburguer" onClick={toggleMenu}>
               <div className="linha"></div>
                 <div className="linha"></div>
@@ -77,9 +76,9 @@ const Home = () =>{
 
             <ul className="itens-menu">
               <ButtonStyledMenuTwo className='btn-menu' onClick={() => ScrollMenu(myComponentInitial)}><Link to="#">Inicio</Link></ButtonStyledMenuTwo>
-              <ButtonStyledMenuTwo className='btn-menu' onClick={() => ScrollMenu(myComponent)}><Link to="#">Nossas Carreiras</Link></ButtonStyledMenuTwo> 
+              <ButtonStyledMenuTwo className='btn-menu' onClick={() => ScrollMenu(myComponent)}><Link to="#">Aumente suas Vendas</Link></ButtonStyledMenuTwo> 
             </ul>
-        </MenuHamburguer>
+        </MenuHamburger>
       </Menu>
 
 

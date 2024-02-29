@@ -2,49 +2,39 @@ import React , { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios'
 import Footer from '../Footer/Footer';
-import './estiloLogin.scss';
-import { useNavigate } from 'react-router-dom';
+import './style.scss';
 import LogoImg from '../../assets/img/Logo.png';
 import { Logo } from '../../design-systems/Images';
 import { FontLogin } from '../../design-systems/Fonts';
 import { InputLogin } from '../../design-systems/Inputs';
 import { ButtonLogin } from '../../design-systems/Buttons';
+import { useDispatch } from 'react-redux';
+import { loginSuccess } from '../../reducers/userActions';
+import { UserState } from '../../reducers/userReducer';
 
 
 
-interface FormularioLoginProps {
-    onLoginSuccess: (usuario: any) => void;
-    onLoginFailure: (error: string) => void;
-  }
-
-  
-const Login: React.FC<FormularioLoginProps> =({ onLoginSuccess, onLoginFailure }) => {
+const Login: React.FC = () => {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
-    const navigate = useNavigate();
+    const dispatch = useDispatch();
 
 
     const handleFormAuth = async () => {
-   
-        try{
-            const URL_API = 'http://localhost:5050'
-            const response = await axios.post(`${URL_API}/auth/login`, {
+        try {
+            const URL_API = 'http://localhost:5050';
+            const response = await axios.post<UserState>(`${URL_API}/auth/login`, {
                 email: email,
                 senha: senha,
-            })
+            });
 
-            if(response.status === 200){
-
-
-                navigate('/dashboard')
-                onLoginSuccess(response.data.usuario);
+            if (response.status === 200) {
+                dispatch(loginSuccess(response.data));
             }
-
-        }catch(error){
-            console.error('Ocorreu um erro')
+        } catch (error) {
+            console.error('Erro durante o login:', error);
         }
-    }
-
+    };
 
     return(
         <>

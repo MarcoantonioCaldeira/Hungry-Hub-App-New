@@ -1,12 +1,17 @@
-import RoutesContainer from "./assets/confg/routes"
+
+import { Provider } from "react-redux"
+import RoutesContainer from "./confg/routes"
+import store from "./store"
 
 
-function App() {
+const App: React.FC = () => {
   return (
     <>
-      <RoutesContainer/>
+      <Provider store={store}>
+        <RoutesContainer/>
+      </Provider>
     </>
   )
-}
+};
 
-export default App
+export default App;

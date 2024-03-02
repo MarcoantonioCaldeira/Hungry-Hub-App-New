@@ -1,7 +1,7 @@
 
 import { Provider } from "react-redux"
 import RoutesContainer from "./confg/routes"
-import store from "./store"
+import store from "./reducers/store"
 
 
 const App: React.FC = () => {

@@ -23,6 +23,7 @@ export interface UserState {
         numero_end: string;
         complemento: string;
     };
+    senha: string
 }
 
 const initialState: UserState | null = null;

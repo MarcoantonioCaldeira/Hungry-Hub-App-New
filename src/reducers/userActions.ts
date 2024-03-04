@@ -7,4 +7,4 @@ export const loginSuccess = (user: UserState) => ({
 
 export const logout = () => ({
     type: 'LOGOUT' as const,
-});
+}); 

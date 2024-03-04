@@ -1,5 +1,5 @@
 import React , { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios'
 import Footer from '../Footer/Footer';
 import './style.scss';
@@ -18,7 +18,7 @@ const Login: React.FC = () => {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
     const dispatch = useDispatch();
-
+    const navigate = useNavigate();
 
     const handleFormAuth = async () => {
         try {
@@ -28,8 +28,11 @@ const Login: React.FC = () => {
                 senha: senha,
             });
 
+    
             if (response.status === 200) {
                 dispatch(loginSuccess(response.data));
+                navigate('/dashboard');
+                
             }
         } catch (error) {
             console.error('Erro durante o login:', error);

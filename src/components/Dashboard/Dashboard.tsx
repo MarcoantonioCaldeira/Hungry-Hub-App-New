@@ -1,25 +1,20 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { UserState } from "../../reducers/userReducer";
+import { RootState } from "../../reducers/rootReducer";
 
 
-function onLogout() {
-    throw new Error('Função não implementada.');
-}
-
-interface RootState {
-    usuario: UserState; 
-}
 
 const Dashboard: React.FC = () => {
-    const usuario = useSelector((state: RootState) => state.usuario); 
-
-
+    const usuario = useSelector((state: RootState) => state.user); 
+   
+    if (!usuario) {
+        return <div>Carregando...</div>; // Ou qualquer outra lógica de carregamento que você preferir
+    }
+    
     return (
         <div>
             <h1>Dados do usuário</h1>
-            <p>Nome: {usuario?.nome}</p>
-            <p>Email: {usuario?.email}</p>
+            <p>Email: {usuario.email}</p>         
         </div>
     );
 };

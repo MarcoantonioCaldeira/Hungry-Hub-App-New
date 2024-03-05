@@ -20,22 +20,31 @@ const Login: React.FC = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const handleFormAuth = async () => {
-        try {
-            const URL_API = 'http://localhost:5050';
-            const response = await axios.post<UserState>(`${URL_API}/auth/login`, {
-                email: email,
-                senha: senha,
-            });
+    const handleFormAuth = async (event: React.FormEvent) => {
+        event.preventDefault();
 
+        const DadosFormulario = {
+            email: email,
+            senha: senha
+        }
+
+        try {
+            const URL_API = 'http://localhost:5050'
+            const response = await axios.post<UserState>(URL_API + '/auth/login', DadosFormulario)
+            console.log(response)
+           
     
             if (response.status === 200) {
                 dispatch(loginSuccess(response.data));
-                navigate('/dashboard');
+                navigate('/dashboard')
                 
+            }else{
+                alert("Credenciais invalidades!!!")
             }
         } catch (error) {
             console.error('Erro durante o login:', error);
+
+            alert("Ocorreu um erro durante o Login. Tente mais tarde");
         }
     };
 
@@ -53,10 +62,10 @@ const Login: React.FC = () => {
 
                         <FontLogin className='TitleLogin'>Iniciar Sessão</FontLogin>
 
-                        <InputLogin className='InputLogin' placeholder='E-mail'  type="text" value={email} onChange={(e:any) => setEmail(e.target.value)} />
+                        <InputLogin className='InputLogin' placeholder='E-mail'  type="text" value={email}  onChange={(e:any) => setEmail(e.target.value)} />
                         <InputLogin className='InputLogin' placeholder="Senha" type="text" value={senha} onChange={(e:any) => setSenha(e.target.value)} />
 
-                        <ButtonLogin className='btn_login'><a>Entrar</a></ButtonLogin>  
+                        <ButtonLogin type="submit" className='btn_login'><a>Entrar</a></ButtonLogin>  
                     </div>
                                       
                     <Link to="/">retornar a página inicial</Link>

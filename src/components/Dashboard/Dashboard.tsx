@@ -9,7 +9,8 @@ const Dashboard: React.FC = () => {
   
     return (
         <div>
-            <h1>Dados do usuário</h1>
+            <h1>Seja Bem-Vindo</h1>
+            <p>Nome: {usuario?.nome}</p>   
             <p>Email: {usuario?.email}</p>   
         </div>
     );

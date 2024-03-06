@@ -1,17 +1,26 @@
 import { createStore, applyMiddleware, compose } from 'redux';
-import { thunk } from 'redux-thunk'
-import rootReducer from './userReducer';
+import { thunk } from 'redux-thunk';
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
+import rootReducer, { RootState } from './rootReducer';
+import { PersistPartial } from 'redux-persist/lib/persistReducer';
 
-export type RootState = ReturnType<typeof rootReducer>;
+export interface FullState extends RootState, PersistPartial {}
 
-function configureStore(initialState?: RootState) {
-    const middleware = applyMiddleware(thunk);
-    let win: any = window as any;
+const persistConfig = {
+    key: 'root',
+    storage,
+};
 
-    const composeEnhancers = typeof window === 'object' && win.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ? win.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({}) : compose;
-    const store = createStore(rootReducer, initialState, composeEnhancers(middleware));
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-    return store;   
-}
+const composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-export default configureStore;
+const store = createStore(
+    persistedReducer,
+    composeEnhancers(applyMiddleware(thunk))
+);
+
+export const persistor = persistStore(store);
+
+export default store;

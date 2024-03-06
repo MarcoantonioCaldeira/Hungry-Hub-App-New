@@ -1,30 +1,7 @@
-export interface UserState {
-    id: number;
-    email: string;
-    telefone: string;
-    nome: string;
-    formaPagamento: {
-        id: number;
-        tipoPagamento: number;
-        num_cartao: string;
-        nomeImpresso: string;
-        validadeCartao: string;
-        cvvCartao: string;
-        nome_Apelido: string;
-        cpf_cnpj: string;
-    };
-    endereco: {
-        id: number;
-        cep: string;
-        uf: string;
-        cidade: string;
-        bairro: string;
-        rua: string;
-        numero_end: string;
-        complemento: string;
-    };
-    senha: string;
-}
+import { Reducer } from "redux";
+import { UserAction, UserActionTypes, UserState } from "./types";
+
+
 
 const initialState: UserState = {
     id: 0,
@@ -54,14 +31,12 @@ const initialState: UserState = {
     senha: '',
 };
 
-type Action = { type: 'LOGIN_SUCCESS'; payload: UserState } | { type: 'LOGOUT' };
-
-const userReducer = (state: UserState = initialState, action: Action): UserState => {
+const userReducer: Reducer<UserState, UserAction> = (state = initialState, action) => {
     switch (action.type) {
-        case 'LOGIN_SUCCESS':
-            return { ...state, ...action.payload }; // Atualiza o estado com os dados do usuário logado
-        case 'LOGOUT':
-            return initialState; 
+        case UserActionTypes.LOGIN_SUCCESS:
+            return { ...state, ...action.payload };
+        case UserActionTypes.LOGOUT:
+            return initialState;
         default:
             return state;
     }

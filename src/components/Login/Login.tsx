@@ -10,7 +10,8 @@ import { InputLogin } from '../../design-systems/Inputs';
 import { ButtonLogin } from '../../design-systems/Buttons';
 import { useDispatch } from 'react-redux';
 import { loginSuccess } from '../../reducers/userActions';
-import { UserState } from '../../reducers/userReducer';
+import { UserState } from '../../reducers/types';
+
 
 
 

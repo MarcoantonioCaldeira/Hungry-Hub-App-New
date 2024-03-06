@@ -1,4 +1,5 @@
-import { UserState } from '../reducers/userReducer';
+import { UserState } from "./types";
+
 
 export const loginSuccess = (usuario: UserState) => ({
     type: 'LOGIN_SUCCESS' as const,

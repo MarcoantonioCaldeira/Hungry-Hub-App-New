@@ -35,6 +35,7 @@ const Login: React.FC = () => {
            
     
             if (response.status === 200) {
+                console.log(response.data)
                 dispatch(loginSuccess(response.data));
                 navigate('/dashboard')
                 

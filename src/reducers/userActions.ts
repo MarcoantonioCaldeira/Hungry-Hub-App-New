@@ -1,8 +1,8 @@
 import { UserState } from '../reducers/userReducer';
 
-export const loginSuccess = (user: UserState) => ({
+export const loginSuccess = (usuario: UserState) => ({
     type: 'LOGIN_SUCCESS' as const,
-    payload: user,
+    payload: usuario,
 });
 
 export const logout = () => ({

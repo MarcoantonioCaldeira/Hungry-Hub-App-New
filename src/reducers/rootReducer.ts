@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
-import userReducer, { UserState } from './userReducer'; // Importe o tipo UserState do userReducer
+import userReducer, { UserState } from './userReducer'; 
 
 const rootReducer = combineReducers({
-    user: userReducer, // Renomeie de userReducer para user
+    usuario: userReducer,
 });
 
 export type RootState = {
-    user: UserState; 
+    usuario: UserState; 
 };
 
 export default rootReducer;

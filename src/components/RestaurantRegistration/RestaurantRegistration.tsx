@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import  { Component } from 'react';
 import PrimaryDataForm from './PrimaryDataForm';
 import SecondDataForm from './SecondDataForm';
 import ThirdDataForm from './ThirdDataForm';

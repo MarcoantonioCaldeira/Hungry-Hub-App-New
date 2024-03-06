@@ -21,7 +21,7 @@ const SecondDataForm: React.FC<SecondDataFormProps> = ({ data, onParte2Change })
 
     return (
         <div>
-            <h2>Cadastro de restaurante Parte 2</h2>
+            <h2>Adicione um Endereço</h2>
 
             <input type="text" name="cep" value={data.cep} onChange={handleInputChange} placeholder="CEP" />
 
@@ -40,5 +40,6 @@ const SecondDataForm: React.FC<SecondDataFormProps> = ({ data, onParte2Change })
         </div>
     )
 }
+
 
 export default SecondDataForm;

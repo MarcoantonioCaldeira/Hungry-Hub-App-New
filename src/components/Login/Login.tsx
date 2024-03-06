@@ -70,7 +70,7 @@ const Login: React.FC = () => {
                         <ButtonLogin type="submit" className='btn_login'><a>Entrar</a></ButtonLogin>  
                     </div>
                                       
-                    <Link to="/">retornar a página inicial</Link>
+                    <Link to="/login">retornar a página inicial</Link>
                 </form>
             </div>
             <Footer />

@@ -9,3 +9,5 @@ export const loginSuccess = (usuario: UserState) => ({
 export const logout = () => ({
     type: 'LOGOUT' as const,
 }); 
+
+

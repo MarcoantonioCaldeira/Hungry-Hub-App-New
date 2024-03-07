@@ -34,13 +34,15 @@ interface State {
       
     };
     showSuccessMessage: boolean;
-    
 }
 
 axios.defaults.withCredentials = true;
 
-class CostumerRegistration extends Component<{}, State> {
 
+class CostumerRegistration extends Component<{}, State> {
+   
+
+    
     constructor(props: {}) {
 
         super(props);
@@ -73,7 +75,7 @@ class CostumerRegistration extends Component<{}, State> {
                 cpf_cnpj:'',
               
             },
-            showSuccessMessage: false,
+            showSuccessMessage: false
         };
     }
 
@@ -111,7 +113,7 @@ class CostumerRegistration extends Component<{}, State> {
 
     handleFormSubmit = async () => {
         const { parte1Data, parte2Data, parte3Data } = this.state;
-
+       
         const clienteData = {
             email:parte1Data.email,
             telefone:parte1Data.telefone,
@@ -141,7 +143,7 @@ class CostumerRegistration extends Component<{}, State> {
         try {
             const API_URL = 'http://localhost:5050'; 
             const response = await axios.post(API_URL + '/rest/cliente/save', clienteData);
-            console.log(response);
+            
 
             if (response.status === 200) {
                 this.setState({ showSuccessMessage: true });
@@ -153,7 +155,9 @@ class CostumerRegistration extends Component<{}, State> {
     };
 
     render() {
+
         const { currentStep } = this.state;
+    
         let formToShow;
 
         if (currentStep === 1) {
@@ -162,7 +166,7 @@ class CostumerRegistration extends Component<{}, State> {
             formToShow = <SecondDataForm data={this.state.parte2Data} onParte2Change={this.handleParte2Change} />;
         } else if (currentStep === 3) {
             formToShow = <ThirdDataForm data={this.state.parte3Data} onParte3Change={this.handleParte3Change} showSuccessMessage={this.state.showSuccessMessage} />      
-        }
+        } 
 
         return (
             <div>

@@ -29,6 +29,11 @@ export interface UserState {
 export enum UserActionTypes {
     LOGIN_SUCCESS = 'LOGIN_SUCCESS',
     LOGOUT = 'LOGOUT',
+    // UPDATE_PART_1_DATA = 'UPDATE_PART_1_DATA',
+    // UPDATE_PART_2_DATA = 'UPDATE_PART_2_DATA',
+    // UPDATE_PART_3_DATA = 'UPDATE_PART_3_DATA',
+    // SUBMIT_FORM = 'SUBMIT_FORM',
+    // SHOW_SUCCESS_MESSAGE = 'SHOW_SUCCESS_MESSAGE'
 }
 
 export interface LoginSuccessAction {
@@ -41,3 +46,5 @@ export interface LogoutAction {
 }
 
 export type UserAction = LoginSuccessAction | LogoutAction;
+
+

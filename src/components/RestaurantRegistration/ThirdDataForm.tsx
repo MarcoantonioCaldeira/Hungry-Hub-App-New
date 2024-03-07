@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+
 
 interface ThirdDataFormProps {
     data:{
@@ -11,14 +12,18 @@ interface ThirdDataFormProps {
     }
     showSuccessMessage:boolean
     onParte3Change: (parte3Data: Partial<ThirdDataFormProps['data']>) => void;
+
 }
 
 
 const ThirdDataForm: React.FC<ThirdDataFormProps> = ({ data, showSuccessMessage, onParte3Change }) => {
+    const navigate = useNavigate();
+
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
         onParte3Change({ [name]: value });
     };
+
 
     return (
         <div>

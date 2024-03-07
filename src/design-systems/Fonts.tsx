@@ -23,5 +23,5 @@ export const FontEntregador = styled.h2`
 
 export const FontLogin = styled.h2`
     font-family: 'Nunito', sans-serif;
-    color: ${({ them }) => theme.colors.sixth};
+    color: ${({ them }) => theme.colors.seven};
 `;

@@ -6,7 +6,8 @@ export const theme = {
         third: '#D9D9D9',
         fourth: '#CAC9C9',
         fifth: '#658C3B',
-        sixth: '#F5393A'
+        sixth: '#F5393A',
+        seven:'#A8BF91'
     },
 
 }

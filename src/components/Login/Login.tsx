@@ -58,7 +58,7 @@ const Login: React.FC = () => {
                     <img src={LogoImg} className='LogoImg'/>
                 </Logo>
 
-                <form onSubmit={handleFormAuth}>
+                <form  onSubmit={handleFormAuth}>
                     
                     <div className='areaInputLogin'>
 

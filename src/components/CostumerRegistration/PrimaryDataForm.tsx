@@ -1,5 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { InputRegister } from '../../design-systems/Inputs';
+import { FontLogin } from '../../design-systems/Fonts';
+import './style/style.scss'
+import LogoImg from '../../assets/img/Logo.png';
+import { Logo } from '../../design-systems/Images';
 
 
 interface PrimaryDataFormProps {
@@ -21,22 +26,37 @@ const PrimaryDataForm: React.FC<PrimaryDataFormProps> = ({ data, onParte1Change 
     };
 
     return (
-        <div>
-            <h2>Vamos criar uma Conta</h2>
+        <>
+            <div> 
 
-            <input type="text" name="nome" value={data.nome} onChange={handleInputChange} placeholder="Nome do Proprietário" />
+                <Logo>
+                    <img src={LogoImg} className='LogoImg'/>
+                </Logo>
 
-            <input type="text" name="email" value={data.email} onChange={handleInputChange} placeholder="Email" />
+                <form className='FormRegistration'>
 
-            <input type="text" name="telefone" value={data.telefone}  onChange={handleInputChange} placeholder="Telefone" />
+                    <div className='areaInputRegister'>
 
-            <input type="text" name="senha" value={data.senha} onChange={handleInputChange} placeholder="Senha" />
+                        <FontLogin className='Title'>Vamos criar uma Conta</FontLogin>
 
-            <input type="text" name="confirmarSenha" value={data.confirmarSenha} onChange={handleInputChange} placeholder="Confirmar Senha" />
+                        <InputRegister type="text" name="nome" value={data.nome} onChange={handleInputChange} placeholder="Nome do Proprietário" />
 
-            <Link to="/">retornar a página inicial</Link>
+                        <InputRegister type="text" name="email" value={data.email} onChange={handleInputChange} placeholder="Email" />
 
-        </div>
+                        <InputRegister type="text" name="telefone" value={data.telefone}  onChange={handleInputChange} placeholder="Telefone" />
+
+                        <InputRegister type="text" name="senha" value={data.senha} onChange={handleInputChange} placeholder="Senha" />
+
+                        <InputRegister type="text" name="confirmarSenha" value={data.confirmarSenha} onChange={handleInputChange} placeholder="Confirmar Senha" />
+
+                        <Link to="/">retornar a página inicial</Link>
+
+                    </div>
+                </form>
+            </div>
+        
+        </>
+    
     )
 }
 

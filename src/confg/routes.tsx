@@ -7,13 +7,14 @@ import CostumerRegistration from '../components/CostumerRegistration/CostumerReg
 import RestaurantRegistration from '../components/RestaurantRegistration/RestaurantRegistration';
 import Home from '../components/Home/Home';
 import Dashboard from '../components/Dashboard/Dashboard';
+import FormularioTeste from '../components/CostumerRegistration/FormularioTeste';
 
 const RoutesComponent  = () => {
     return(
         <Routes>
             <Route path='/' element={<Home />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/cadastro" element={<CostumerRegistration />} />
+            <Route path="/cadastro" element={<FormularioTeste />} />
             <Route path="/cadastrorestaurante" element={<RestaurantRegistration />} />
             <Route path='/dashboard' element={<Dashboard />} />
         </Routes>

@@ -8,6 +8,7 @@ import Footer from '../Footer/Footer';
 import './style/style.scss'
 
 
+
 interface State {
     currentStep: number;
     parte1Data: {
@@ -175,6 +176,7 @@ class CostumerRegistration extends Component<{}, State> {
             <>
              <div className='BodyRegistration'>
                 {formToShow}
+                
                 {currentStep > 1 && <ButtonLogin  className="btn_login" onClick={this.handlePreviousStep}><a>Anterior</a></ButtonLogin>}
                 {currentStep < 3 && <ButtonLogin className="btn_login" onClick={this.handleNextStep}><a>Próximo</a></ButtonLogin>}
                 {currentStep === 3 && <ButtonLogin className="btn_login" onClick={this.handleFormSubmit}><a>Cadastrar</a></ButtonLogin>}

@@ -5,7 +5,7 @@ import { FontLogin } from '../../design-systems/Fonts';
 import './style/style.scss'
 import LogoImg from '../../assets/img/Logo.png';
 import { Logo } from '../../design-systems/Images';
-
+import  ImgFundo  from '../../assets/img/img_background.jpg';
 
 interface PrimaryDataFormProps {
     data: {
@@ -33,6 +33,9 @@ const PrimaryDataForm: React.FC<PrimaryDataFormProps> = ({ data, onParte1Change 
                     <img src={LogoImg} className='LogoImg'/>
                 </Logo>
 
+
+                <img  src={ImgFundo} className='ImgFundo'/>
+
                 <form className='FormRegistration'>
 
                     <div className='areaInputRegister'>
@@ -49,12 +52,11 @@ const PrimaryDataForm: React.FC<PrimaryDataFormProps> = ({ data, onParte1Change 
 
                         <InputRegister type="text" name="confirmarSenha" value={data.confirmarSenha} onChange={handleInputChange} placeholder="Confirmar Senha" />
 
-                        <Link to="/">retornar a página inicial</Link>
+                            {/* <Link to="/">retornar a página inicial</Link> */}
 
                     </div>
                 </form>
             </div>
-        
         </>
     
     )

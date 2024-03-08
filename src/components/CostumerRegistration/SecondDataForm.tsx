@@ -1,4 +1,8 @@
 import React from 'react';
+import { InputRegister } from '../../design-systems/Inputs';
+import { FontLogin } from '../../design-systems/Fonts';
+import { Logo } from '../../design-systems/Images';
+import LogoImg from '../../assets/img/Logo.png'
 
 interface SecondDataFormProps {
     data:{
@@ -21,23 +25,39 @@ const SecondDataForm: React.FC<SecondDataFormProps> = ({ data, onParte2Change })
 
     return (
         <div>
-            <h2>Adicione um Endereço</h2>
 
-            <input type="text" name="cep" value={data.cep} onChange={handleInputChange} placeholder="CEP" />
+            <Logo>
+                <img src={LogoImg} className='LogoImg'/>
+            </Logo>
 
-            <input type="text" name="uf" value={data.uf} onChange={handleInputChange} placeholder="UF" />
 
-            <input type="text" name="cidade" value={data.cidade} onChange={handleInputChange} placeholder="Cidade" />
+            <form className='FormRegistration'>
 
-            <input type="text" name="bairro" value={data.bairro} onChange={handleInputChange} placeholder="Bairro" />
+                <div className='areaInputRegister'>
+                    <FontLogin className='Title'>Adicione um Endereço</FontLogin>
 
-            <input type="text" name="numero_end" value={data.numero_end} onChange={handleInputChange} placeholder="Numero" />
+                    <InputRegister type="text" name="cep" value={data.cep} onChange={handleInputChange} placeholder="CEP" />
 
-            <input type="text" name="rua" value={data.rua} onChange={handleInputChange} placeholder="Rua" />
+                    <InputRegister type="text" name="uf" value={data.uf} onChange={handleInputChange} placeholder="UF" />
 
-            <input type="text" name="complemento" value={data.complemento} onChange={handleInputChange} placeholder="Complemento" />
+                    <InputRegister type="text" name="cidade" value={data.cidade} onChange={handleInputChange} placeholder="Cidade" />
+
+                    <InputRegister type="text" name="bairro" value={data.bairro} onChange={handleInputChange} placeholder="Bairro" />
+
+                    <InputRegister type="text" name="numero_end" value={data.numero_end} onChange={handleInputChange} placeholder="Numero" />
+
+                    <InputRegister type="text" name="rua" value={data.rua} onChange={handleInputChange} placeholder="Rua" />
+
+                    <InputRegister type="text" name="complemento" value={data.complemento} onChange={handleInputChange} placeholder="Complemento" />
+
+                </div>
+
+            </form>
 
         </div>
+
+        
+        
     )
 }
 

@@ -1,5 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Logo } from '../../design-systems/Images';
+import LogoImg from '../../assets/img/Logo.png'
+import { FontLogin } from '../../design-systems/Fonts';
+import { InputRegister } from '../../design-systems/Inputs';
 
 interface ThirdDataFormProps {
     data:{
@@ -25,27 +29,46 @@ const ThirdDataForm: React.FC<ThirdDataFormProps> = ({ data, showSuccessMessage,
 
     return (
         <div>
-            <h2>Adicione um metodo de pagamento</h2>
 
-            <input type="text" name="tipo_pagamento" value={data.tipo_pagamento} onChange={handleInputChange} placeholder="Debito ou Credito" />
+            <Logo>
+                <img src={LogoImg} className='LogoImg'/>
+            </Logo>
 
-            <input type="text" name="num_cartao" value={data.num_cartao} onChange={handleInputChange} placeholder="Numero do Cartão" />
+            <form className='FormRegistration'>
 
-            <input type="text" name="nomeImpresso" value={data.nomeImpresso} onChange={handleInputChange} placeholder="Nome Impresso" />
+                <div className='areaInputRegister'>
+                    <FontLogin className='Title'>Adicione um Cartão</FontLogin>
 
-            <input type="text" name="validadeCartao" value={data.validadeCartao} onChange={handleInputChange} placeholder="Data de Validade" />
+                    <div className='LabelArea'>
+                        <input type="radio" name="tipo_pagamento" value={data.tipo_pagamento = "1"} onChange={handleInputChange} />
+                        <label>Debito</label>
 
-            <input type="text" name="cvvCartao" value={data.cvvCartao} onChange={handleInputChange} placeholder="CVV" />
+                        <input type="radio" name="tipo_pagamento" value={data.tipo_pagamento = "2"} onChange={handleInputChange} />
+                        <label>Credito</label>
+                    </div>
+                    
+                    <InputRegister type="text" name="num_cartao" value={data.num_cartao} onChange={handleInputChange} placeholder="Numero do Cartão" />
 
-            <input type="text" name="nome_Apelido" value={data.nome_Apelido} onChange={handleInputChange} placeholder="Apelido para o Cartão" />
-        
-            <input type="text" name="cpf_cnpj" value={data.cpf_cnpj} onChange={handleInputChange} placeholder="Seu CPF" />
+                    <InputRegister type="text" name="nomeImpresso" value={data.nomeImpresso} onChange={handleInputChange} placeholder="Nome Impresso" />
 
-            {showSuccessMessage && (
-                <div className="success-message">Cadastro feito com sucesso!!!</div>
-            )}
-         
+                    <InputRegister type="text" name="validadeCartao" value={data.validadeCartao} onChange={handleInputChange} placeholder="Data de Validade" />
+
+                    <InputRegister type="text" name="cvvCartao" value={data.cvvCartao} onChange={handleInputChange} placeholder="CVV" />
+
+                    <InputRegister type="text" name="nome_Apelido" value={data.nome_Apelido} onChange={handleInputChange} placeholder="Apelido para o Cartão" />
+
+                    <InputRegister type="text" name="cpf_cnpj" value={data.cpf_cnpj} onChange={handleInputChange} placeholder="Seu CPF" />
+
+                    {showSuccessMessage && (
+                        <div className="success-message">Cadastro feito com sucesso!!!</div>
+                    )}
+
+                </div>
+
+            </form>
+
         </div>
+
     )
 }
 

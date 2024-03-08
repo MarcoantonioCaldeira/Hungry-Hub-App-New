@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useForm } from "react-hook-form";
 import { InputRegister } from '../../design-systems/Inputs';
 import { FontLogin } from '../../design-systems/Fonts';
 import './style/style.scss'
@@ -7,24 +7,28 @@ import LogoImg from '../../assets/img/Logo.png';
 import { Logo } from '../../design-systems/Images';
 import  ImgFundo  from '../../assets/img/img_background.jpg';
 
+
+interface FormData {
+    nome: string;
+    email: string;
+    telefone: string;
+    senha: string;
+    confirmarSenha: string;
+}
+  
 interface PrimaryDataFormProps {
-    data: {
-        nome: string,
-        email: string,
-        telefone: string,
-        senha: string,
-        confirmarSenha: string,
-    };
-    onParte1Change: (parte1Data: Partial<PrimaryDataFormProps['data']>) => void;
+    data: FormData;
+    onParte1Change: (parte1Data: Partial<FormData>) => void;
 }
 
-
 const PrimaryDataForm: React.FC<PrimaryDataFormProps> = ({ data, onParte1Change }) =>  {
-    const handleInputChange = (e:any) => {
-        const { name, value } = e.target;
-        onParte1Change({ [name]: value });
-    };
+    const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
 
+    const onSubmit = (formData: FormData) => {
+      console.log(formData)
+      onParte1Change(formData);
+    };
+  
     return (
         <>
             <div className='FirstForm'> 
@@ -33,26 +37,25 @@ const PrimaryDataForm: React.FC<PrimaryDataFormProps> = ({ data, onParte1Change 
                     <img src={LogoImg} className='LogoImg'/>
                 </Logo>
 
-
                 <img  src={ImgFundo} className='Ilustration'/>
 
-                <form className='FormRegistration'>
+                <form className='FormRegistration' onSubmit={handleSubmit(onSubmit)}>
 
                     <div className='areaInputRegister'>
 
                         <FontLogin className='Title'>Vamos criar uma Conta</FontLogin>
+        
+                        <InputRegister type='text' {...register('nome')} value={data.nome} placeholder='Nome do Proprietário' />
 
-                        <InputRegister type="text" name="nome" value={data.nome} onChange={handleInputChange} placeholder="Nome do Proprietário" />
+                        <InputRegister type='text' {...register('email')} value={data.email} placeholder='Email' />
 
-                        <InputRegister type="text" name="email" value={data.email} onChange={handleInputChange} placeholder="Email" />
+                        <InputRegister type='text' {...register('telefone')} value={data.telefone} placeholder='Telefone' />
 
-                        <InputRegister type="text" name="telefone" value={data.telefone}  onChange={handleInputChange} placeholder="Telefone" />
+                        <InputRegister type='password' {...register('senha')} value={data.senha} placeholder='Senha' />
+                        
+                        <InputRegister type='password' {...register('confirmarSenha')} value={data.confirmarSenha} placeholder='Confirmar Senha' />
 
-                        <InputRegister type="text" name="senha" value={data.senha} onChange={handleInputChange} placeholder="Senha" />
-
-                        <InputRegister type="text" name="confirmarSenha" value={data.confirmarSenha} onChange={handleInputChange} placeholder="Confirmar Senha" />
-
-                            {/* <Link to="/">retornar a página inicial</Link> */}
+                        {/* <Link to="/">retornar a página inicial</Link> */}
 
                     </div>
                 </form>

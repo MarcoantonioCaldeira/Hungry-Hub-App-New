@@ -27,14 +27,14 @@ const PrimaryDataForm: React.FC<PrimaryDataFormProps> = ({ data, onParte1Change 
 
     return (
         <>
-            <div> 
+            <div className='FirstForm'> 
 
                 <Logo>
                     <img src={LogoImg} className='LogoImg'/>
                 </Logo>
 
 
-                <img  src={ImgFundo} className='ImgFundo'/>
+                <img  src={ImgFundo} className='Ilustration'/>
 
                 <form className='FormRegistration'>
 

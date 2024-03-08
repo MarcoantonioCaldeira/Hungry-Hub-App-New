@@ -159,34 +159,70 @@ class CostumerRegistration extends Component<{}, State> {
     };
 
     render() {
-
         const { currentStep } = this.state;
-    
         let formToShow;
-
+    
         if (currentStep === 1) {
-            formToShow = <PrimaryDataForm data={this.state.parte1Data} onParte1Change={this.handleParte1Change} />;
+            formToShow = (
+                <>
+                    <PrimaryDataForm
+                        data={this.state.parte1Data}
+                        onParte1Change={this.handleParte1Change}
+                    />
+                    <div className='Buttons_1'>
+                        <ButtonLogin className="btn_login_1" onClick={this.handleNextStep}>
+                            <a>Próximo</a>
+                        </ButtonLogin>
+                    </div>
+                </>
+            );
         } else if (currentStep === 2) {
-            formToShow = <SecondDataForm data={this.state.parte2Data} onParte2Change={this.handleParte2Change} />;
+            formToShow = (
+                <>
+                    <SecondDataForm
+                        data={this.state.parte2Data}
+                        onParte2Change={this.handleParte2Change}
+                    />
+                    <div className='Buttons'>
+                        <ButtonLogin className="btn_login" onClick={this.handlePreviousStep}>
+                            <a>Anterior</a>
+                        </ButtonLogin>
+                        <ButtonLogin className="btn_login" onClick={this.handleNextStep}>
+                            <a>Próximo</a>
+                        </ButtonLogin>
+                    </div>
+                </>
+            );
         } else if (currentStep === 3) {
-            formToShow = <ThirdDataForm data={this.state.parte3Data} onParte3Change={this.handleParte3Change} showSuccessMessage={this.state.showSuccessMessage} />      
-        } 
-
+            formToShow = (
+                <>
+                    <ThirdDataForm
+                        data={this.state.parte3Data}
+                        onParte3Change={this.handleParte3Change}
+                        showSuccessMessage={this.state.showSuccessMessage}
+                    />
+                    <div className='Buttons'>
+                        <ButtonLogin className="btn_login" onClick={this.handlePreviousStep}>
+                            <a>Anterior</a>
+                        </ButtonLogin>
+                        <ButtonLogin className="btn_login" onClick={this.handleFormSubmit}>
+                            <a>Cadastrar</a>
+                        </ButtonLogin>
+                    </div>
+                </>
+            );
+        }
+    
         return (
             <>
-             <div className='BodyRegistration'>
-                {formToShow}
-                
-                {currentStep > 1 && <ButtonLogin  className="btn_login" onClick={this.handlePreviousStep}><a>Anterior</a></ButtonLogin>}
-                {currentStep < 3 && <ButtonLogin className="btn_login" onClick={this.handleNextStep}><a>Próximo</a></ButtonLogin>}
-                {currentStep === 3 && <ButtonLogin className="btn_login" onClick={this.handleFormSubmit}><a>Cadastrar</a></ButtonLogin>}
-                
-            </div>
-            <Footer />
+                <div className='BodyRegistration'>
+                    {formToShow}
+                </div>
+                <Footer />
             </>
-           
         );
     }
+    
 
     
 

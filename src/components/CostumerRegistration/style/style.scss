@@ -14,7 +14,7 @@
     margin-top: 20px;
 }
 
-.ImgFundo{
+.Ilustration{
     width: 450px;
     position: absolute;
     display: flex;
@@ -29,6 +29,7 @@
 
     .LabelArea{
         display: flex;
+        margin-top: 40px;
         align-items: center;
         gap: 10px;
         font-family: 'Nunito', sans-serif;
@@ -37,11 +38,24 @@
 }
 
 
-.btn_login{
+.Buttons {
     position: absolute;
-   margin-top: 540px !important;
-   margin-left: 1060px !important;
+    display: flex;
+    justify-content: space-between; /* Distribui os itens uniformemente na linha */
+    width: 20%;
+    margin-top: 50% !important;
+    margin-left: 925px !important;
 }
+
+.Buttons_1{
+    position: absolute;
+    display: flex;
+    justify-content: space-between; /* Distribui os itens uniformemente na linha */
+    width: 20%;
+    margin-top: 40% !important;
+    margin-left: 1060px !important;
+}
+
 
 .FormRegistration{
     width: 50%;

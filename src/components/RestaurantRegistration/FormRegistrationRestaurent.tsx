@@ -6,6 +6,7 @@ import { InputRegister } from "../../design-systems/Inputs";
 import { FontLogin } from "../../design-systems/Fonts";
 import  LogoImg  from "../../assets/img/Logo.png";
 import { Logo } from "../../design-systems/Images";
+import ImgFundo from '../../assets/img/img_background.jpg'
 import { ButtonLogin } from "../../design-systems/Buttons";
 axios.defaults.withCredentials = true;
 
@@ -24,7 +25,7 @@ const steps = [
   }
 ];
 
-export default function FormularioTeste() {
+export default function FormRegistrationRestaurent() {
   const [currentStep, setCurrentStep] = useState(0);
   const [loading, setLoading] = useState(false);
   const [formValues, setFormValues] = useState({
@@ -145,6 +146,8 @@ export default function FormularioTeste() {
                 <img src={LogoImg} className='LogoImg'/>
             </Logo>
 
+            <img  src={ImgFundo} className='Ilustration'/>
+
             <form className='FormRegistration' onSubmit={handleSubmit}>
 
                 <div className='areaInputRegister'>
@@ -152,6 +155,8 @@ export default function FormularioTeste() {
                 <FontLogin className='Title'>{steps[currentStep].title}</FontLogin>
 
                 <div className="fields">
+
+
                     {currentStep === 0 && (
                     <>
                         <div className="field">
@@ -273,15 +278,26 @@ export default function FormularioTeste() {
 
                     {currentStep === 2 && (
                     <>
-                        <div className="field">
-                        <InputRegister
-                            type="text"
-                            placeholder="Tipo de Pagamento"
-                            name="tipoPagamento"
-                            onChange={handlePaymentInputChange}
-                            value={formValues.formaPagamento.tipoPagamento}
-                        />
+                        <div className='LabelArea'>
+                            <input
+                                type="radio"
+                                placeholder="Tipo de Pagamento"
+                                name="tipoPagamento"
+                                onChange={handlePaymentInputChange}
+                                value={formValues.formaPagamento.tipoPagamento = "1"}
+                            />
+                            <label>Debito</label>
+
+                            <input
+                                type="radio"
+                                placeholder="Tipo de Pagamento"
+                                name="tipoPagamento"
+                                onChange={handlePaymentInputChange}
+                                value={formValues.formaPagamento.tipoPagamento = "2"}
+                            />
+                            <label>Credito</label>
                         </div>
+                        
                         <div className="field">
                         <InputRegister
                             type="text"

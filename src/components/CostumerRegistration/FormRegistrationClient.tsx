@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Footer from "../Footer/Footer";
-import "./style/style.scss"
+import "./style/style.scss";
 import { InputRegister } from "../../design-systems/Inputs";
 import { FontLogin } from "../../design-systems/Fonts";
 import  LogoImg  from "../../assets/img/Logo.png";
 import { Logo } from "../../design-systems/Images";
-import ImgFundo from '../../assets/img/img_background.jpg'
+import ImgFundo from '../../assets/img/img_background.jpg';
 import { ButtonLogin } from "../../design-systems/Buttons";
 axios.defaults.withCredentials = true;
 

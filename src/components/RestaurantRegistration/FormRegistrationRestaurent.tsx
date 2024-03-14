@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Footer from "../Footer/Footer";
-import "./style/style.scss"
+import "./style/style.scss";
 import { InputRegister } from "../../design-systems/Inputs";
 import { FontLogin } from "../../design-systems/Fonts";
 import  LogoImg  from "../../assets/img/Logo.png";
 import { Logo } from "../../design-systems/Images";
-import ImgFundo from '../../assets/img/img_background.jpg'
+// import ImgFundo from '../../assets/img/img_background.jpg';
 import { ButtonLogin } from "../../design-systems/Buttons";
 axios.defaults.withCredentials = true;
 
@@ -17,42 +17,36 @@ const steps = [
   },
   {
     id: "FORM_TWO",
-    title: "Endereço de entrega"
-  },
-  {
-    id: "FORM_THREE",
-    title: "Dados de pagamento"
+    title: "Endereço"
   }
 ];
 
 export default function FormRegistrationRestaurent() {
   const [currentStep, setCurrentStep] = useState(0);
   const [loading, setLoading] = useState(false);
-  const [formValues, setFormValues] = useState({
-    email: "",
-    nome: "",
-    telefone: "",
-    senha: "",
-    confirmarSenha: "",
-    endereco: {
-      cep: "",
-      uf: "",
-      cidade: "",
-      bairro: "",
-      rua: "",
-      numero_end: "",
-      complemento: ""
-    },
-    formaPagamento: {
-      tipoPagamento: "",
-      num_cartao: "",
-      nomeImpresso: "",
-      validadeCartao: "",
-      cvvCartao: "",
-      nome_Apelido: "",
-      cpf_cnpj: ""
-    }
-  });
+  const [formValues, setFormValues] = useState(
+    {
+        nome_proprietario: "",
+        cnpj_cpf: "",
+        telefone_Restaurante: "",
+        email:"",
+        senha: "",
+        confirmarSenha: "",
+        foto_Restaurante:"",
+        especialidade: "",
+        nome_restaurante: "",
+        descricao: "",
+        endereco:{
+          cep:"",
+          uf:"",
+          cidade:"",
+          bairro:"",
+          rua: "",
+          numero_end: "",
+          complemento: ""
+        }
+      }
+  );
 
   function handleNext() {
     setCurrentStep((prevState) => prevState + 1);
@@ -79,22 +73,9 @@ export default function FormRegistrationRestaurent() {
     }));
   }
 
-  function handlePaymentInputChange(event:any) {
-    const { name, value } = event.target;
-
-    setFormValues((prevState) => ({
-      ...prevState,
-      formaPagamento: {
-        ...prevState.formaPagamento,
-        [name]: value
-      }
-    }));
-  }
-
   async function handleSubmit(e:any) {
     e.preventDefault();
-    //axios.defaults.withCredentials = true;
-
+  
     try {
       const API_URL = 'http://localhost:5050';
       const response = await axios.post(API_URL + '/rest/cliente/save', formValues);
@@ -107,28 +88,24 @@ export default function FormRegistrationRestaurent() {
       setLoading(false);
       setCurrentStep(0);
       setFormValues({
-        email: "",
-        nome: "",
-        telefone: "",
+        nome_proprietario: "",
+        cnpj_cpf: "",
+        telefone_Restaurante: "",
+        email:"",
         senha: "",
         confirmarSenha: "",
-        endereco: {
-          cep: "",
-          uf: "",
-          cidade: "",
-          bairro: "",
+        foto_Restaurante:"",
+        especialidade: "",
+        nome_restaurante: "",
+        descricao: "",
+        endereco:{
+          cep:"",
+          uf:"",
+          cidade:"",
+          bairro:"",
           rua: "",
           numero_end: "",
           complemento: ""
-        },
-        formaPagamento: {
-          tipoPagamento: "",
-          num_cartao: "",
-          nomeImpresso: "",
-          validadeCartao: "",
-          cvvCartao: "",
-          nome_Apelido: "",
-          cpf_cnpj: ""
         }
       });
     } catch (error) {
@@ -146,7 +123,7 @@ export default function FormRegistrationRestaurent() {
                 <img src={LogoImg} className='LogoImg'/>
             </Logo>
 
-            <img  src={ImgFundo} className='Ilustration'/>
+            {/* <img  src={ImgFundo} className='Ilustration'/> */}
 
             <form className='FormRegistration' onSubmit={handleSubmit}>
 
@@ -159,15 +136,24 @@ export default function FormRegistrationRestaurent() {
 
                     {currentStep === 0 && (
                     <>
+                      <div className="field">
+                          <InputRegister
+                              type="text"
+                              placeholder="Foto do Restaurante"
+                              name="foto_Restaurante"
+                              onChange={handleInputChange}
+                              value={formValues.foto_Restaurante}
+                          />
+                        </div>
                         <div className="field">
-                        <InputRegister
-                            type="text"
-                         
-                            placeholder="Nome"
-                            name="nome"
-                            onChange={handleInputChange}
-                            value={formValues.nome}
-                        />
+                          <InputRegister
+                              type="text"
+                          
+                              placeholder="Nome do Proprietario"
+                              name="nome_proprietario"
+                              onChange={handleInputChange}
+                              value={formValues.nome_proprietario}
+                          />
                         </div>
                         <div className="field">
                         <InputRegister
@@ -181,10 +167,10 @@ export default function FormRegistrationRestaurent() {
                         <div className="field">
                         <InputRegister
                             type="text"
-                            placeholder="Telefone"
-                            name="telefone"
+                            placeholder="Telefone do Restaurante"
+                            name="telefone_Restaurante"
                             onChange={handleInputChange}
-                            value={formValues.telefone}
+                            value={formValues.telefone_Restaurante}
                         />
                         </div>
                         <div className="field">
@@ -276,84 +262,7 @@ export default function FormRegistrationRestaurent() {
                     </>
                     )}
 
-                    {currentStep === 2 && (
-                    <>
-                        <div className='LabelArea'>
-                            <input
-                                type="radio"
-                                placeholder="Tipo de Pagamento"
-                                name="tipoPagamento"
-                                onChange={handlePaymentInputChange}
-                                value={formValues.formaPagamento.tipoPagamento = "1"}
-                            />
-                            <label>Debito</label>
 
-                            <input
-                                type="radio"
-                                placeholder="Tipo de Pagamento"
-                                name="tipoPagamento"
-                                onChange={handlePaymentInputChange}
-                                value={formValues.formaPagamento.tipoPagamento = "2"}
-                            />
-                            <label>Credito</label>
-                        </div>
-                        
-                        <div className="field">
-                        <InputRegister
-                            type="text"
-                            placeholder="Número do Cartão"
-                            name="num_cartao"
-                            onChange={handlePaymentInputChange}
-                            value={formValues.formaPagamento.num_cartao}
-                        />
-                        </div>
-                        <div className="field">
-                        <InputRegister
-                            type="text"
-                            placeholder="Nome Impresso"
-                            name="nomeImpresso"
-                            onChange={handlePaymentInputChange}
-                            value={formValues.formaPagamento.nomeImpresso}
-                        />
-                        </div>
-                        <div className="field">
-                        <InputRegister
-                            type="text"
-                            placeholder="Validade do Cartão"
-                            name="validadeCartao"
-                            onChange={handlePaymentInputChange}
-                            value={formValues.formaPagamento.validadeCartao}
-                        />
-                        </div>
-                        <div className="field">
-                        <InputRegister
-                            type="text"
-                            placeholder="CVV do Cartão"
-                            name="cvvCartao"
-                            onChange={handlePaymentInputChange}
-                            value={formValues.formaPagamento.cvvCartao}
-                        />
-                        </div>
-                        <div className="field">
-                        <InputRegister
-                            type="text"
-                            placeholder="Nome ou Apelido do Cartão"
-                            name="nome_Apelido"
-                            onChange={handlePaymentInputChange}
-                            value={formValues.formaPagamento.nome_Apelido}
-                        />
-                        </div>
-                        <div className="field">
-                        <InputRegister
-                            type="text"
-                            placeholder="CPF ou CNPJ"
-                            name="cpf_cnpj"
-                            onChange={handlePaymentInputChange}
-                            value={formValues.formaPagamento.cpf_cnpj}
-                        />
-                        </div>
-                    </>
-                    )}
                 </div>
 
                 {currentStep < steps.length - 1 && (

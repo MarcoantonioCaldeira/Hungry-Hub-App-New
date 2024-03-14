@@ -118,10 +118,12 @@ export default function FormRegistrationRestaurent() {
   return (
     <>
         <div className='BodyRegistration'>
-
-            <Logo>
-                <img src={LogoImg} className='LogoImg'/>
-            </Logo>
+            <a href="/">
+              <Logo>
+                  <img src={LogoImg} className='LogoImg'/>
+              </Logo>
+            </a>
+          
 
             {/* <img  src={ImgFundo} className='Ilustration'/> */}
 

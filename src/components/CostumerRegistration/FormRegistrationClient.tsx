@@ -91,50 +91,51 @@ export default function FormRegistrationClient() {
     }));
   }
 
+
   async function handleSubmit(e:any) {
     e.preventDefault();
-    //axios.defaults.withCredentials = true;
-
-    try {
-      const API_URL = 'http://localhost:5050';
-      const response = await axios.post(API_URL + '/rest/cliente/save', formValues);
 
 
-      if (response.status === 200) {
-        console.log(response)
-      }
-
-      setLoading(false);
-      setCurrentStep(0);
-      setFormValues({
-        email: "",
-        nome: "",
-        telefone: "",
-        senha: "",
-        confirmarSenha: "",
-        endereco: {
-          cep: "",
-          uf: "",
-          cidade: "",
-          bairro: "",
-          rua: "",
-          numero_end: "",
-          complemento: ""
-        },
-        formaPagamento: {
-          tipoPagamento: "",
-          num_cartao: "",
-          nomeImpresso: "",
-          validadeCartao: "",
-          cvvCartao: "",
-          nome_Apelido: "",
-          cpf_cnpj: ""
+      try {
+        const API_URL = 'http://localhost:5050';
+        const response = await axios.post(API_URL + '/rest/cliente/save', formValues);
+  
+  
+        if (response.status === 200) {
+          console.log(response)
         }
-      });
-    } catch (error) {
-      console.error("Error:", error);
-      setLoading(false);
-    }
+  
+        setLoading(false);
+        setCurrentStep(0);
+        setFormValues({
+          email: "",
+          nome: "",
+          telefone: "",
+          senha: "",
+          confirmarSenha: "",
+          endereco: {
+            cep: "",
+            uf: "",
+            cidade: "",
+            bairro: "",
+            rua: "",
+            numero_end: "",
+            complemento: ""
+          },
+          formaPagamento: {
+            tipoPagamento: "",
+            num_cartao: "",
+            nomeImpresso: "",
+            validadeCartao: "",
+            cvvCartao: "",
+            nome_Apelido: "",
+            cpf_cnpj: ""
+          }
+        });
+      } catch (error) {
+        console.error("Error:", error);
+        setLoading(false);
+      }
   }
 
 
@@ -142,9 +143,11 @@ export default function FormRegistrationClient() {
     <>
         <div className='BodyRegistration'>
 
-            <Logo>
-                <img src={LogoImg} className='LogoImg'/>
-            </Logo>
+            <a href="/">
+              <Logo>
+                  <img src={LogoImg} className='LogoImg'/>
+              </Logo>
+            </a>
 
             <img  src={ImgFundo} className='Ilustration'/>
 
@@ -160,50 +163,50 @@ export default function FormRegistrationClient() {
                     {currentStep === 0 && (
                     <>
                         <div className="field">
-                        <InputRegister
-                            type="text"
-                         
-                            placeholder="Nome"
-                            name="nome"
-                            onChange={handleInputChange}
-                            value={formValues.nome}
-                        />
+                          <InputRegister
+                              type="text"
+                          
+                              placeholder="Nome"
+                              name="nome"
+                              onChange={handleInputChange}
+                              value={formValues.nome}
+                          />
                         </div>
                         <div className="field">
-                        <InputRegister
-                            type="text"
-                            placeholder="E-mail"
-                            name="email"
-                            onChange={handleInputChange}
-                            value={formValues.email}
-                        />
+                          <InputRegister
+                              type="text"
+                              placeholder="E-mail"
+                              name="email"
+                              onChange={handleInputChange}
+                              value={formValues.email}
+                          />
                         </div>
                         <div className="field">
-                        <InputRegister
-                            type="text"
-                            placeholder="Telefone"
-                            name="telefone"
-                            onChange={handleInputChange}
-                            value={formValues.telefone}
-                        />
+                          <InputRegister
+                              type="text"
+                              placeholder="Telefone"
+                              name="telefone"
+                              onChange={handleInputChange}
+                              value={formValues.telefone} 
+                          />
                         </div>
                         <div className="field">
-                        <InputRegister
-                            type="password"
-                            placeholder="Senha"
-                            name="senha"
-                            onChange={handleInputChange}
-                            value={formValues.senha}
-                        />
+                          <InputRegister
+                              type="password"
+                              placeholder="Senha"
+                              name="senha"
+                              onChange={handleInputChange}
+                              value={formValues.senha}
+                          />
                         </div>
                         <div className="field">
-                        <InputRegister
-                            type="password"
-                            placeholder="Confirmar Senha"
-                            name="confirmarSenha"
-                            onChange={handleInputChange}
-                            value={formValues.confirmarSenha}
-                        />
+                          <InputRegister
+                              type="password"
+                              placeholder="Confirmar Senha"
+                              name="confirmarSenha"
+                              onChange={handleInputChange}
+                              value={formValues.confirmarSenha}
+                          />
                         </div>
                     </>
                     )}
@@ -211,67 +214,67 @@ export default function FormRegistrationClient() {
                     {currentStep === 1 && (
                     <>
                         <div className="field">
-                        <InputRegister
-                            type="text"
-                            placeholder="CEP"
-                            name="cep"
-                            onChange={handleAddressInputChange}
-                            value={formValues.endereco.cep}
-                        />
+                          <InputRegister
+                              type="text"
+                              placeholder="CEP"
+                              name="cep"
+                              onChange={handleAddressInputChange}
+                              value={formValues.endereco.cep}
+                          />
                         </div>
                         <div className="field">
-                        <InputRegister
-                            type="text"
-                            placeholder="UF"
-                            name="uf"
-                            onChange={handleAddressInputChange}
-                            value={formValues.endereco.uf}
-                        />
+                          <InputRegister
+                              type="text"
+                              placeholder="UF"
+                              name="uf"
+                              onChange={handleAddressInputChange}
+                              value={formValues.endereco.uf}
+                          />
                         </div>
                         <div className="field">
-                        <InputRegister
-                            type="text"
-                            placeholder="Cidade"
-                            name="cidade"
-                            onChange={handleAddressInputChange}
-                            value={formValues.endereco.cidade}
-                        />
+                          <InputRegister
+                              type="text"
+                              placeholder="Cidade"
+                              name="cidade"
+                              onChange={handleAddressInputChange}
+                              value={formValues.endereco.cidade}
+                          />
                         </div>
                         <div className="field">
-                        <InputRegister
-                            type="text"
-                            placeholder="Bairro"
-                            name="bairro"
-                            onChange={handleAddressInputChange}
-                            value={formValues.endereco.bairro}
-                        />
+                          <InputRegister
+                              type="text"
+                              placeholder="Bairro"
+                              name="bairro"
+                              onChange={handleAddressInputChange}
+                              value={formValues.endereco.bairro}
+                          />
                         </div>
                         <div className="field">
-                        <InputRegister
-                            type="text"
-                            placeholder="Número"
-                            name="numero_end"
-                            onChange={handleAddressInputChange}
-                            value={formValues.endereco.numero_end}
-                        />
+                          <InputRegister
+                              type="text"
+                              placeholder="Número"
+                              name="numero_end"
+                              onChange={handleAddressInputChange}
+                              value={formValues.endereco.numero_end}
+                          />
                         </div>
                         <div className="field">
-                        <InputRegister
-                            type="text"
-                            placeholder="Rua"
-                            name="rua"
-                            onChange={handleAddressInputChange}
-                            value={formValues.endereco.rua}
-                        />
+                          <InputRegister
+                              type="text"
+                              placeholder="Rua"
+                              name="rua"
+                              onChange={handleAddressInputChange}
+                              value={formValues.endereco.rua}
+                          />
                         </div>
                         <div className="field">
-                        <InputRegister
-                            type="text"
-                            placeholder="Complemento"
-                            name="complemento"
-                            onChange={handleAddressInputChange}
-                            value={formValues.endereco.complemento}
-                        />
+                          <InputRegister
+                              type="text"
+                              placeholder="Complemento"
+                              name="complemento"
+                              onChange={handleAddressInputChange}
+                              value={formValues.endereco.complemento}
+                          />
                         </div>
                     </>
                     )}
@@ -299,58 +302,58 @@ export default function FormRegistrationClient() {
                         </div>
                         
                         <div className="field">
-                        <InputRegister
-                            type="text"
-                            placeholder="Número do Cartão"
-                            name="num_cartao"
-                            onChange={handlePaymentInputChange}
-                            value={formValues.formaPagamento.num_cartao}
-                        />
+                          <InputRegister
+                              type="text"
+                              placeholder="Número do Cartão"
+                              name="num_cartao"
+                              onChange={handlePaymentInputChange}
+                              value={formValues.formaPagamento.num_cartao}
+                          />
                         </div>
                         <div className="field">
-                        <InputRegister
-                            type="text"
-                            placeholder="Nome Impresso"
-                            name="nomeImpresso"
-                            onChange={handlePaymentInputChange}
-                            value={formValues.formaPagamento.nomeImpresso}
-                        />
+                          <InputRegister
+                              type="text"
+                              placeholder="Nome Impresso"
+                              name="nomeImpresso"
+                              onChange={handlePaymentInputChange}
+                              value={formValues.formaPagamento.nomeImpresso}
+                          />
                         </div>
                         <div className="field">
-                        <InputRegister
-                            type="text"
-                            placeholder="Validade do Cartão"
-                            name="validadeCartao"
-                            onChange={handlePaymentInputChange}
-                            value={formValues.formaPagamento.validadeCartao}
-                        />
+                          <InputRegister
+                              type="text"
+                              placeholder="Validade do Cartão"
+                              name="validadeCartao"
+                              onChange={handlePaymentInputChange}
+                              value={formValues.formaPagamento.validadeCartao}
+                          />
                         </div>
                         <div className="field">
-                        <InputRegister
-                            type="text"
-                            placeholder="CVV do Cartão"
-                            name="cvvCartao"
-                            onChange={handlePaymentInputChange}
-                            value={formValues.formaPagamento.cvvCartao}
-                        />
+                          <InputRegister
+                              type="text"
+                              placeholder="CVV do Cartão"
+                              name="cvvCartao"
+                              onChange={handlePaymentInputChange}
+                              value={formValues.formaPagamento.cvvCartao}
+                          />
                         </div>
                         <div className="field">
-                        <InputRegister
-                            type="text"
-                            placeholder="Nome ou Apelido do Cartão"
-                            name="nome_Apelido"
-                            onChange={handlePaymentInputChange}
-                            value={formValues.formaPagamento.nome_Apelido}
-                        />
+                          <InputRegister
+                              type="text"
+                              placeholder="Nome ou Apelido do Cartão"
+                              name="nome_Apelido"
+                              onChange={handlePaymentInputChange}
+                              value={formValues.formaPagamento.nome_Apelido}
+                          />
                         </div>
                         <div className="field">
-                        <InputRegister
-                            type="text"
-                            placeholder="CPF ou CNPJ"
-                            name="cpf_cnpj"
-                            onChange={handlePaymentInputChange}
-                            value={formValues.formaPagamento.cpf_cnpj}
-                        />
+                          <InputRegister
+                              type="text"
+                              placeholder="CPF ou CNPJ"
+                              name="cpf_cnpj"
+                              onChange={handlePaymentInputChange}
+                              value={formValues.formaPagamento.cpf_cnpj}
+                          />
                         </div>
                     </>
                     )}

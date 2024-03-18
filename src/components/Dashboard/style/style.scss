@@ -1,0 +1,32 @@
+.Vertical_Menu{
+    display: inline;
+
+    .Logo{
+        width: 260px;
+    }
+}
+
+
+.InputSearch{
+    width: 350px;
+    background-color: #D9D9D9;
+    color: #FFFFFF;
+    padding: 0px 14px;
+    border: 1px solid;
+    margin: 20px;
+    border-radius: 5px;
+
+    border-color: #CECCCC;
+    display: block;
+    margin-left: 5%;
+    height: 45px;
+    font-weight: 500;
+}
+
+.Teste-btn{
+    position: absolute;
+    display: inline-block;
+    margin-left: 22px;
+    //margin-top: 1px;
+    //background-color: red;
+}

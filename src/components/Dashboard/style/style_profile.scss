@@ -1,0 +1,34 @@
+.perfil-dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .perfil {
+    cursor: pointer;
+  }
+  
+  .dropdown-content {
+    position: absolute;
+    top: 30px; /* Ajuste conforme necessário */
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 120px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px;
+  }
+  
+  .dropdown-content button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    text-align: left;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+  
+  .dropdown-content button:hover {
+    background-color: #ddd;
+  }
+  

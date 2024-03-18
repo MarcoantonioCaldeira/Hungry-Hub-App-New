@@ -88,19 +88,6 @@ const Home = () =>{
         </Template>
       </div>
       
-
-      <WeSolutions className="Solutions">
-        <Font>Do que você precisa?</Font>
-        
-        <SolutionRestaurant className='Restaurante'>
-            <p>Restaurantes</p>
-        </SolutionRestaurant>
-
-        <SolutionLanch className='Lanchonete'>
-            <p>Mercados</p>
-        </SolutionLanch>
-        
-      </WeSolutions>
       
       <RegisterArea ref={myComponent}  className='Area-Registrations'>
 
@@ -112,9 +99,9 @@ const Home = () =>{
               <img src={ImageDelivery} className='ImageDelivery'/>
             
               <div className='CadastroRestaurante2'>
-                  <FontRestaurante className='font_restaurante'>Restaurante</FontRestaurante>
+                  <FontRestaurante className='font_restaurante'>Cadastre o seu Restaurante</FontRestaurante>
                   <div>
-                    <ButtonCarrers className='btn_saiba'><Link  to="/cadastrorestaurante">Saiba mais</Link></ButtonCarrers>
+                    <ButtonCarrers className='btn_saiba'>Saiba mais</ButtonCarrers>
                   </div>
                   
               </div>

@@ -5,7 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import { logout } from '../../reducers/userActions';
 import './style/style_profile.scss'
 
-const PerfilDropdown = () => {
+const DropdownProfile  = () => {
+
   const [mostrarDropdown, setMostrarDropdown] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -17,7 +18,11 @@ const PerfilDropdown = () => {
   const handleLogout = () => {
     dispatch(logout());
     navigate('/')
-};
+  };
+
+  const handleProfile = () => {
+    navigate('/myprofile')
+  };
 
   return (
     <div className="perfil-dropdown">
@@ -27,6 +32,7 @@ const PerfilDropdown = () => {
       {mostrarDropdown && (
         <div className="dropdown-content">
           <button onClick={handleLogout}>Logout</button>
+          <button onClick={handleProfile}>Meus Dados</button> 
           {/* Adicione outras opções de conta aqui, se necessário */}
         </div>
       )}
@@ -34,4 +40,4 @@ const PerfilDropdown = () => {
   );
 };
 
-export default PerfilDropdown;
+export default DropdownProfile;
